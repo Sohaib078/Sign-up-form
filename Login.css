@@ -1,0 +1,56 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: white;
+}
+#login-container{
+    width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: teal;
+    box-shadow: black rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: auto;
+}
+#login-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    border: black;
+}
+input[name="first_Name"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+input[name="last_Name"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+input[name="email"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;  
+}
+input[name="phone_Number"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+}
+#login-container button[type="submit"]{
+    width: 30%;
+    padding: 10px;
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+   

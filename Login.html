@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Login.css">
+    <title>Login Form</title>
+</head>
+<body>
+    <li class="navbar-logo">
+        <img
+      src="jobshopper.png"
+      alt="logo" width="300" height="100">
+    </li>
+    <div id="login-container">
+        <h1>Sign Up</h1>
+        <form id="sign_upForm" action="http://localhost:5000/users" method="POST">
+
+            <label for="first_Name">First Name:</label>
+            <span>
+            <input
+              id="first_Name"
+              oninput="updateValues()"
+              name="first_Name"
+          /></span>
+          
+          <br>
+
+          <label for="last_Name">Last Name:</label>
+          <span>
+          <input
+            id="last_Name"
+            oninput="updateValues()"
+            name="last_Name"
+        /></span>
+
+        <label for="email">Email:</label>
+        <span>
+        <input
+          id="email"
+          oninput="updateValues()"
+          name="email"
+      /></span>
+
+      <br>
+
+      <label for="phone_Number">Phone Number:</label>
+      <span>
+        <input
+          id="phone_Number"
+          oninput="updateValues()"
+          name="phone_Number"
+      /></span>
+            
+            <button type="submit" id="Sign Up">Sign Up</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            var fname = document.forms["sign_upForm"]["fname"].value;
+            var lname = document.forms["sign_upForm"]["lname"].value;
+            var email = document.forms["sign_upForm"]["email"].value;
+
+            if (fname == "") {
+                alert("fname must be filled out");
+                return false;
+            }
+            if (lname == "") {
+                alert("lname must be filled out");
+                return false;
+            }
+            if (email == "") {
+                alert("email must be filled out");
+                return false;
+            }
+            
+            if (fname.length <= 3) {
+                alert("lname must be greater than 3");
+                return false;
+            }
+
+            if (lname.length <= 3) {
+                alert("lname must be greater than 3");
+                return false;
+            }
+
+            if (!/^[a-zA-Z]+$/.test(username)) {
+                alert("fname must contain only letters");
+                return false;
+            }
+            if (!/^[a-zA-Z]+$/.test(username)) {
+                alert("fname must contain only letters");
+                return false;
+            }
+
+            
+            return true;
+        }
+
+        document.getElementById("Sign Up").addEventListener("click", validateForm);
+
+        var inputValues = {
+            first_Name: "",
+            last_Name: "",
+            email: "",
+            phone_number: ""
+        };
+
+        function updateValues() {
+        inputValues.first_Name =
+          document.getElementById("first_Name").value;
+          inputValues.last_Name =
+          document.getElementById("last_Name").value;
+          inputValues.email =
+          document.getElementById("email").value;
+          inputValues.phone_number =
+          document.getElementById("phone_Number").value;
+          console.log(inputValues, "inputValues");
+        }
+
+        function nextPrev(n) {
+        if (currentTab >= x.length) {
+          handleSubmit();
+          document.getElementById("sign_upForm").submit();
+          return false;
+        }
+    }
+    function handleSubmit() {
+        debugger;
+        const formData = {
+            first_Name: inputValues.first_Name,
+            last_Name: inputValues.last_Name,
+            email: inputValues.email,
+            phone_number: inputValues.phone_number
+        };
+        fetch("http://localhost:5000/users")
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+
+
+
+        fetch("http://localhost:5000/users", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json", 
+          },
+          body: JSON.stringify(formData), 
+        })
+          .then((response) => response.json())
+          .then((data) => {
+           alert('Successfully Signed up');
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
+
+
+          fetch("http://localhost:5000/users", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json", 
+          },
+          body: JSON.stringify(formData), 
+        })
+          .then((response) => response.json())
+          .then((data) => {
+           alert('Successfully Signed up');
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
+
+
+          fetch("http://localhost:5000/users", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json", 
+          },
+          body: JSON.stringify(formData), 
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+
+    }
+    </script>
+</body>
+</html>
